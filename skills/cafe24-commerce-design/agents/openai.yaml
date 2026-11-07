@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cafe24 Commerce Design"
+  short_description: "Figma 데모부터 Cafe24 안전 반영까지 관리"
+  default_prompt: "Figma 데모를 먼저 만들고 검증·승인 후 Cafe24 복제 스킨에 안전하게 구현해줘."
