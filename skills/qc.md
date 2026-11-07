@@ -23,6 +23,7 @@ description: |
 - 판정자: **Claude Opus 5.5 (`claude-opus-5-5`) + 추론 강도 xhigh** 독립 서브에이전트.
 - Agent 호출: `model: "opus"`, `effort: "xhigh"`. 호출 전 `opus` 별칭이 Opus 5.5인지 확인하고, 다른 버전을 가리키면 보고에 실제 버전을 적는다.
 - 판정자는 원천(코드·receipt·live readback·운영 규칙)을 직접 읽는다. 부모는 핵심 근거를 원천과 재대조한 뒤 확정한다.
+- 비례 적용(2026-11-07): `Lite` 모드는 부모가 직접 원천을 읽고 판정한다(판정자 생략). Opus xhigh 판정자는 `Deep` 모드에서만 띄운다.
 - 보고 첫 줄에 `검토 모델: Opus 5.5 xhigh`를 표기한다. 다른 모델·강도로 돌렸으면 그 사실과 이유를 표기한다.
 
 ## 모드
