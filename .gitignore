@@ -1,0 +1,23 @@
+# 내부 Slack 봇 ID·재무발송 스크립트 등 민감정보 포함 - 퍼블릭 레포 제외
+skills/mazi-ops-boundaries/
+
+# 2026-08-18 헤르메스에서 이전한 스킬 중 실제 내부 식별자(광고계정ID/GA4·GTM ID/실명/외부업체 이메일/개인 SNS 핸들/Sheet ID) 포함 - 퍼블릭 레포 제외
+skills/mazikorea-marketing-md/
+skills/brand-reference-library/
+skills/cosset-product-registration-scrape/
+skills/product-reference-scout/
+skills/commercial-partnership-triage/
+
+# 2026-11-04 Codex에서 이관한 내부 운영 스킬 - 퍼블릭 레포 제외
+skills/initiative-manager.md
+skills/mazi-ai-search-product-db.md
+skills/jamjari/
+skills/mac-storage-maintenance/
+
+# 2026-11-04 Claude판 효율스킬(내부 운영 라우팅) - 퍼블릭 레포 제외
+skills/mazi-efficiency/
+
+# 2026-11-07 내부 경로·맥미니 운영 상세 포함 / 앱 동기화 폴더 - 퍼블릭 레포 제외
+skills/kakaotalk-mac/
+skills/synced/
+.DS_Store
