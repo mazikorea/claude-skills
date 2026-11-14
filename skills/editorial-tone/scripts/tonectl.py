@@ -22,7 +22,7 @@ def apply(name, src, out, sheet):
     if not f: return dict(STATUS='NEEDS_USER', 이유=f'확정 필터 없음: {name}', 목록=list(F))
     os.makedirs(out, exist_ok=True); done, thumbs = [], []
     for p in files_of(src):
-        rgb, exif = film2.load_any(p); x = film2.normalize(rgb); y = film2.film_arr(x, f['params'])
+        rgb, exif = film2.load_any(p); x = film2.normalize(rgb); y = (__import__('film3').apply(x, f['params']) if f.get('model') == 'film3' else film2.film_arr(x, f['params']))
         o = os.path.join(out, os.path.splitext(os.path.basename(p))[0] + f'_{name}.jpg')
         Image.fromarray((y*255+.5).astype(np.uint8)).save(o, quality=95, subsampling=0, icc_profile=film2.SRGB_BYTES, **({'exif': exif} if exif else {}))
         # 화질 검수: 디테일(고주파) 일치도
