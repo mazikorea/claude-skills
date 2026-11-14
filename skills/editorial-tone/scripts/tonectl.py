@@ -26,7 +26,7 @@ def apply(name, src, out, sheet):
         o = os.path.join(out, os.path.splitext(os.path.basename(p))[0] + f'_{name}.jpg')
         Image.fromarray((y*255+.5).astype(np.uint8)).save(o, quality=95, subsampling=0, icc_profile=film2.SRGB_BYTES, **({'exif': exif} if exif else {}))
         # 화질 검수: 디테일(고주파) 일치도
-        a = np.asarray(Image.fromarray((x*255).astype(np.uint8)).convert('L').reduce(4), np.float32); b = np.asarray(Image.open(o).convert('L').reduce(4), np.float32)
+        a = np.asarray(Image.fromarray((x*255).astype(np.uint8)).convert('L').reduce(4), np.float32); b = np.asarray((Image.fromarray((__import__('film3').apply(x, {**f['params'], 'gr': 0})*255+.5).astype(np.uint8)) if f['params'].get('gr') else Image.open(o)).convert('L').reduce(4), np.float32)  # 입자(gr)는 의도된 노이즈라 디테일 검수에서 제외
         hp = lambda m: m - (np.roll(m,1,0)+np.roll(m,-1,0)+np.roll(m,1,1)+np.roll(m,-1,1))/4
         det = float(np.corrcoef(hp(a).ravel(), hp(b).ravel())[0,1]); done.append(dict(파일=os.path.basename(o), 디테일=round(det,3), 통과=det>=0.95))
         if sheet:
