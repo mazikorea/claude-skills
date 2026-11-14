@@ -1,0 +1,23 @@
+{
+ "name": "MAZI 01 Brick",
+ "status": "확정",
+ "confirmed": "2026-11-14",
+ "params": {
+  "black": 2.0,
+  "white": 93.0,
+  "contrast": 0.88,
+  "sat": 0.86,
+  "green_sat": 0.55,
+  "green_shift": -18,
+  "skin_warm": 1.18,
+  "sh_a": -1.5,
+  "sh_b": -1.0,
+  "hi_a": 1.5,
+  "hi_b": 6.0,
+  "mid_a": 0.8,
+  "mid_b": 4.5,
+  "grain": 0.0,
+  "gamma": 1.0
+ },
+ "ref_anchor": null
+}

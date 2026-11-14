@@ -21,3 +21,7 @@ skills/mazi-efficiency/
 skills/kakaotalk-mac/
 skills/synced/
 .DS_Store
+
+# editorial-tone: 레퍼런스 이미지(저작권)·컴파일 바이너리 제외
+skills/editorial-tone/refsets/
+skills/editorial-tone/scripts/seg
