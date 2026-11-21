@@ -34,7 +34,7 @@ const slug = (u) => u.replace(/^https?:\/\//, '').replace(/[^A-Za-z0-9]+/g, '_')
 const browser = await chromium.launch();
 const results = [];
 for (const url of urls) {
-  const ctx = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, isMobile: vp.mobile, hasTouch: vp.mobile, locale: 'ko-KR' });
+  const ctx = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, hasTouch: vp.mobile, locale: 'ko-KR' });
   const page = await ctx.newPage();
   const findings = [], add = (level, rule, detail) => findings.push({ level, rule, detail });
   const origin = new URL(url).origin;
@@ -100,9 +100,16 @@ for (const url of urls) {
     for (const el of document.querySelectorAll('[class*="xans-"]')) {
       for (const c of el.classList) if (/^xans-[a-z0-9]+-[A-Za-z0-9_]+/i.test(c) && !/^xans-(element|record)-$/.test(c) && !/^xans-element-/.test(c) && !/^xans-record-/.test(c)) mods[c] = (mods[c] || 0) + 1;
     }
-    return { mods, viewportMeta: !!document.querySelector('meta[name="viewport"]'), hscroll: document.documentElement.scrollWidth > window.innerWidth + 1, scrollW: document.documentElement.scrollWidth, innerW: window.innerWidth, title: document.title };
+    return { mods, viewportMeta: !!document.querySelector('meta[name="viewport"]'), hscroll: document.documentElement.scrollWidth > window.innerWidth + 1, scrollW: document.documentElement.scrollWidth, innerW: window.innerWidth, title: document.title,
+      jqRun: window.jQuery?.fn?.jquery || null, jqTags: [...document.scripts].map((x) => x.src).filter((u) => /jquery[-.\/]\d+\.\d+/i.test(u) && !/(marquee|bxslider|ui|migrate|lazy|cookie)/i.test(u)) };
   }).catch(() => ({ mods: {}, viewportMeta: false, hscroll: false }));
   if (vp.mobile && !dom.viewportMeta) add('FAIL', 'viewport-meta', '모바일 viewport meta 없음');
+  { // jQuery 버전: 스크립트 태그 버전과 실행 중 버전 불일치·다중 버전(라이브러리 충돌 가설 H5)
+    const vers = [...new Set((dom.jqTags || []).map((u) => (u.match(/jquery[-.\/](\d+\.\d+(?:\.\d+)?)/i) || [])[1]).filter(Boolean))];
+    if (vers.length > 1) add('WARN', 'jquery-versions', `jQuery 태그 버전 여러 개: ${vers.join(', ')}`);
+    const major = (v) => String(v).split('.')[0];
+    if (dom.jqRun && vers.length && vers.some((v) => major(v) !== major(dom.jqRun))) add('WARN', 'jquery-runtime-mismatch', `스크립트 태그 ${vers.join(', ')} ≠ 실행 중 jQuery ${dom.jqRun}(다른 jQuery가 덮어썼을 수 있음)`);
+  }
   if (dom.hscroll) add('WARN', 'horizontal-scroll', `가로 스크롤 발생(scrollWidth ${dom.scrollW} > ${dom.innerW})`);
   if (!Object.keys(dom.mods).length) add('WARN', 'no-xans', 'xans-* 모듈 컨테이너가 하나도 없음(카페24 페이지가 아니거나 모듈 전부 누락)');
 
@@ -128,6 +135,6 @@ await browser.close();
 
 const order = { FAIL: 2, WARN: 1, PASS: 0 };
 const overall = results.reduce((a, r) => (order[r.verdict] > order[a] ? r.verdict : a), 'PASS');
-fs.writeFileSync(path.join(outDir, 'summary.json'), JSON.stringify({ step: 3, verdict: overall, results: results.map((r) => ({ url: r.url, viewport: r.viewport, verdict: r.verdict, findings: r.findings.length })) }, null, 2));
+fs.writeFileSync(path.join(outDir, 'summary.json'), JSON.stringify({ step: 3, verdict: overall, results: results.map((r) => ({ url: r.url, viewport: r.viewport, verdict: r.verdict, findings: r.findings })) }, null, 2));
 console.log(`\n[단계3 렌더 검사] ${overall}  (${results.length}개 URL)  결과폴더: ${outDir}`);
 process.exit(overall === 'FAIL' ? 1 : 0);

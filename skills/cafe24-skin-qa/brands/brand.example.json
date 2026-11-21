@@ -1,0 +1,100 @@
+{
+  "brand": "example",
+  "label": "예시 스토어",
+  "origin": "https://example-mall.cafe24.com",
+  "delayMs": 2500,
+  "viewports": [
+    "pc",
+    "mobile"
+  ],
+  "perf": {
+    "preset": "mobile",
+    "runs": 3
+  },
+  "matrix": {
+    "quick": {
+      "viewports": "390,1440",
+      "browsers": "chromium"
+    },
+    "full": {
+      "viewports": "390,430,768,1440",
+      "browsers": "chromium,webkit,firefox"
+    }
+  },
+  "visualMask": [],
+  "hover": "",
+  "pages": [
+    {
+      "key": "home",
+      "path": "/",
+      "stages": [
+        10,
+        3,
+        4,
+        "4c",
+        5,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "key": "list",
+      "path": "/product/list.html?cate_no=1",
+      "stages": [
+        10,
+        3,
+        4,
+        "4c",
+        5,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "key": "detail",
+      "path": "/product/detail.html?product_no=1",
+      "stages": [
+        3,
+        4,
+        "4c",
+        5,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "key": "search",
+      "path": "/product/search.html?keyword=a",
+      "stages": [
+        3,
+        4,
+        "4c",
+        5,
+        9
+      ]
+    },
+    {
+      "key": "cart",
+      "path": "/order/basket.html",
+      "stages": [
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "key": "login",
+      "path": "/member/login.html",
+      "stages": [
+        3,
+        4,
+        5
+      ]
+    }
+  ],
+  "flows": "flows/cafe24-default.template.json",
+  "tokens": "tokens/tokens.example.json"
+}

@@ -1,0 +1,1 @@
+{"base":"http://localhost:8765","flows":[{"name":"쓰기·결제·없는 요소","steps":[{"goto":"/shop.html"},{"click":"#pay"},{"click":"#add"},{"expectVisible":"#nope"},{"expectCount":[".item",1]}]}]}
