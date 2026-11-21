@@ -17,7 +17,7 @@ Create the editable Figma design first, implement only in a cloned Cafe24 skin, 
 6. Build in this order: tokens and styles, reusable components, mobile screens, desktop screens, interaction states, clickable prototype.
 7. Validate every phase with structural readback and rendered screenshots. Fix failures before building on them.
 8. Back up HTML/CSS/JS and image assets separately. Clone PC and mobile skins. Implement only in the clone.
-9. Test the clone against `references/qa-matrix.md`. Preserve order, payment, login, and Cafe24 modules unless the approved scope explicitly changes them.
+9. Test the clone against `references/qa-matrix.md`, and hand the clone to an independent read-only session using the `cafe24-skin-qa` skill (PASS/WARN/FAIL; never self-certify). Preserve order, payment, login, and Cafe24 modules unless the approved scope explicitly changes them.
 10. Show the preview and receive explicit approval before representative-skin switching or any live write.
 11. After release, re-read the live site, run smoke tests, and retain the previous skin as rollback.
 

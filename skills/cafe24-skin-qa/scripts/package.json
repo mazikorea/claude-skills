@@ -1,0 +1,1 @@
+{"name":"cafe24-skin-qa-scripts","private":true,"type":"module","description":"Project-local deps only. Never install globally.","dependencies":{"playwright":"1.65.1"}}
