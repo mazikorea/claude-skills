@@ -1,0 +1,13 @@
+{
+  "name": "예시 디자인 토큰(Figma 승인값을 사람이 옮겨 적음)",
+  "tolerancePx": 1,
+  "cssVars": { "--brand-ink": "#111111" },
+  "checks": [
+    { "name": "메인 타이틀", "selector": "h1", "viewport": "pc",
+      "expect": { "font-family": "Pretendard", "font-size": "32px", "font-weight": "700", "color": "#111111", "line-height": "1.4", "letter-spacing": "-0.32px" } },
+    { "name": "모바일 타이틀", "selector": "h1", "viewport": "mobile", "expect": { "font-size": "24px" } },
+    { "name": "상품 카드 간격", "selector": ".card", "which": "all", "expect": { "margin-bottom": "16px", "padding-top": "12px", "border-top-left-radius": "8px", "background-color": "#f5f5f5" } },
+    { "name": "CTA 버튼", "selector": "button.cta", "expect": { "height": "48px", "background-color": "#111111", "color": "#ffffff" } },
+    { "name": "있을 수도 있는 배너", "selector": ".banner", "optional": true, "expect": { "font-size": "14px" } }
+  ]
+}

@@ -1,0 +1,1 @@
+{"base":"http://localhost:8765","flows":[{"name":"메뉴·검색 이동","steps":[{"goto":"/shop.html"},{"click":"#goList"},{"expectUrl":"list\\.html"},{"expectCount":[".item",2]},{"goto":"/shop.html"},{"fill":["input[name=keyword]","가방"]},{"press":"Enter"},{"expectUrl":"keyword="},{"expectNoText":"\\{\\$"}]}]}

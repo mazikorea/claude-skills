@@ -1,0 +1,8 @@
+{"_note":"복제 스킨 미리보기용 템플릿. base·셀렉터는 스킨에 맞게 수정. 쓰기(장바구니 담기 등)는 allowedWrites에 사람이 명시해야만 통과.",
+ "base":"https://REPLACE-PREVIEW-MALL",
+ "allowedWrites":[],
+ "flows":[
+  {"name":"홈→분류 목록","steps":[{"goto":"/"},{"expectVisible":"[class*=xans-layout]"},{"goto":"/product/list.html?cate_no=1"},{"expectCount":["[class*=xans-product-listnormal]",1]}]},
+  {"name":"검색 결과·빈 결과","steps":[{"goto":"/product/search.html?keyword=a"},{"expectNoText":"\\{\\$"},{"goto":"/product/search.html?keyword=zzzzqqqq"},{"expectNoText":"\\{\\$"}]},
+  {"name":"장바구니·로그인 진입","steps":[{"goto":"/order/basket.html"},{"expectNoText":"\\{\\$"},{"goto":"/member/login.html"},{"expectVisible":"input[type=password]"}]}
+ ]}
