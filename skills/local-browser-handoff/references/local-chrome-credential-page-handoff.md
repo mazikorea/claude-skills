@@ -12,7 +12,7 @@ Use this when the user says a service is already logged in on the local Mac and 
 - Actionable rows may be `role="row"` / `role="gridcell"` rather than `button`; inspect with `document.elementFromPoint(x, y)` and climb to the nearest actionable ancestor.
 - Try pointer/mouse event dispatch first. If React still ignores synthetic events, use real local GUI coordinates with `cliclick` after activating the exact Chrome tab (`brew install cliclick` if absent).
 - After each click, verify by re-reading `document.body.innerText`, checking dialogs, or taking a screenshot; do not infer success from the click command alone.
-- If the user specifically asks to notify them after opening screens, include their actual Slack mention in the message, not just “준선님”.
+- If the user specifically asks to notify them after opening screens, include their actual Slack mention in the message, not just the display name.
 
 ## AppleScript/Chrome patterns
 - `open -a 'Google Chrome' <url...>` may not make target tabs easy to verify when many tabs are open. If needed, create a dedicated new Chrome window:

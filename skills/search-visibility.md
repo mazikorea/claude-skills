@@ -7,13 +7,13 @@ description: |
 
 # 검색 가시성 (GEO·SEO) — 진입점
 
-정본은 맥미니 Buddy의 `search-visibility` 스킬이다. 작업 전에 `ssh hmini`로 아래를 먼저 읽는다.
+정본은 운영 서버 에이전트의 `search-visibility` 스킬이다. 작업 전에 운영 서버(접속 별칭은 비공개 전역 지침 참조)에서 아래를 먼저 읽는다.
 - `~/.hermes/skills/claude-import/research/search-visibility/SKILL.md` §0 (목적·결과 지표·노출 레버·승인 3분류)
 - 같은 폴더 `references/geo-recursive-improvement-loop.md` (정기 루프), `references/ai-visibility-query-bank.md` (고정 질문)
 - 최신 상태: `~/.hermes/ops/seo-geo-weekly-backlog.md`, `~/.hermes/ops/seo-geo/monthly/`
 
 ## 요약 원칙
 - 목적은 AI 답변에서 두 브랜드 노출을 늘리는 것. 준비도 점수보다 결과 지표(AI 답변 언급·자사몰 인용·AI 유입)가 우선.
-- 고객에게 보이는 문구·화면(Title·Meta·상품명·카테고리명·콘텐츠 게시·외부 발송)은 준선님 승인 후 바로 실행. 그 외 측정·초안·화면 비노출 기술 보강은 즉시 실행.
+- 고객에게 보이는 문구·화면(Title·Meta·상품명·카테고리명·콘텐츠 게시·외부 발송)은 운영 책임자 승인 후 바로 실행. 그 외 측정·초안·화면 비노출 기술 보강은 즉시 실행.
 - 카페24 스킨 수정은 `cafe24-commerce-design` 절차(복제 스킨·검수)를 따른다.
 - 현재 상태는 기억으로 말하지 않고 매번 공개 페이지·백로그로 확인한다.

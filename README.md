@@ -104,10 +104,10 @@ Claude에게 특정 업무를 시킬 때, 매번 길게 설명하지 않아도 *
 ### 1단계: 저장소 클론
 ```bash
 # Mac
-cd ~ && git clone https://github.com/junsun611/claude-skills.git
+cd ~ && git clone https://github.com/mazikorea/claude-skills.git
 
 # Windows
-cd %USERPROFILE% && git clone https://github.com/junsun611/claude-skills.git
+cd %USERPROFILE% && git clone https://github.com/mazikorea/claude-skills.git
 ```
 
 ### 2단계: 스킬 폴더에 복사 (또는 심볼릭 링크)

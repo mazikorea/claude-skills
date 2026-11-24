@@ -11,7 +11,7 @@ description: Independent, read-only pre-release QA for Cafe24 skin changes (PC +
 
 - 구현 세션과 다른 세션(또는 서브에이전트)이 수행한다. 구현자가 자기 작업을 자기 QA로 통과시키지 않는다.
 - 쓰기 금지: 관리자·운영 화면, 로그인, 스킨 저장, 대표 디자인 전환, 주문·가입 생성. GET 조회와 로컬 파일 읽기만.
-- 라이브 반영은 PASS 후에도 **준선님 승인 1회** 뒤에만(`cafe24-commerce-design`의 승인 게이트). 반영 후 읽기 전용 라이브 스모크, 실패 시 롤백.
+- 라이브 반영은 PASS 후에도 **운영 책임자 승인 1회** 뒤에만(`cafe24-commerce-design`의 승인 게이트). 반영 후 읽기 전용 라이브 스모크, 실패 시 롤백.
 - 추측으로 채우지 않는다. 미확인 항목은 `references/step1-hypotheses.md`의 가설 시험으로 실측하고, 못 하면 'MANUAL/미확인'으로 남긴다.
 - 판정: **PASS**(0~10단계 전부 통과+실기기 완료) / **WARN**(합의된 한계만, 사유 기록) / **FAIL**(하나라도 실패 → 배포 후보 아님).
 
@@ -64,7 +64,7 @@ description: Independent, read-only pre-release QA for Cafe24 skin changes (PC +
 4. **신기능 시험(단계 1·7)**: 영상(muted·playsinline·poster·용량)·썸네일 호버·3D(glb/usdz MIME)·모션을 `feature_check` 로. 에디터 video 보존·확장자 업로드·CSP 는 로그인 필요 가설 → `references/step1-hypotheses.md` 목록으로 사람 확인.
 5. **전체 모드**: 후보 확정 직전 `--mode full`(+ 단계 6 흐름 파일에 신기능 셀렉터 추가). 신규 FAIL 0, 기존 FAIL 은 "기존" 표시 유지(해결 의무는 별도 합의).
 6. **실기기(단계 11)**: iPhone Safari·Android Chrome 실기기 또는 시뮬레이터로 사람 확인 → `report.mjs --manual11 PASS`.
-7. **판정·인계**: `report.md` 첨부 + 롤백 대상(원본 스킨명) 기재 → 준선님 승인 게이트(`cafe24-commerce-design`). 반영 후 읽기 전용 라이브 스모크(`--mode quick`, 운영 주소) 1회, 실패 시 롤백.
+7. **판정·인계**: `report.md` 첨부 + 롤백 대상(원본 스킨명) 기재 → 운영 책임자 승인 게이트(`cafe24-commerce-design`). 반영 후 읽기 전용 라이브 스모크(`--mode quick`, 운영 주소) 1회, 실패 시 롤백.
 8. **사후**: 반영이 확정되면 새 운영 상태를 `--mode baseline` 으로 다음 기준선 저장.
 
 ## 한계·미확인

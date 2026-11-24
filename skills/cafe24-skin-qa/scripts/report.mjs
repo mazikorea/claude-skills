@@ -3,7 +3,7 @@
 // 사용: node report.mjs --step2 <json> --step3 <summary.json> ... --step10 <summary.json> [--manual0 PASS --manual1 WARN --manual11 PASS] [--target "복제 스킨 식별(비밀정보 금지)"] [--rollback "롤백 대상"] [--note "한계·합의 사유"] [--out report.md]
 //   단계 0(사전 조건)·1(가설 시험)·11(실기기)은 사람이 확인한 값을 --manualN PASS|WARN|FAIL|MANUAL 로 넘김. 안 넘기면 '미실행'.
 // 종합: FAIL 1개라도 → FAIL / 0~11 전부 PASS 일 때만 PASS / 그 외(미실행·MANUAL·WARN) → WARN(미완료). 종료코드 1=FAIL.
-// 이 리포트가 PASS여도 라이브 반영은 준선님 승인 후 1회, 반영 후 읽기 전용 라이브 스모크, 실패 시 롤백.
+// 이 리포트가 PASS여도 라이브 반영은 운영 책임자 승인 후 1회, 반영 후 읽기 전용 라이브 스모크, 실패 시 롤백.
 import fs from 'node:fs';
 import { parseArgs, here } from './lib.mjs';
 
@@ -39,7 +39,7 @@ for (const r of rows.filter((x) => x.findings.length)) {
   md.push('');
 }
 if (opt.note && opt.note !== true) md.push('## 합의된 한계·사유', String(opt.note), '');
-md.push('## 알려진 한계', '`references/limits.md` 참조. 단계 1 가설 시험 미확인 항목은 확정 전까지 구현 가정으로 쓰지 않음.', '', '## 인계', overall === 'PASS' ? '- 배포 후보. **라이브 반영은 준선님 승인 후 1회만.** 반영 후 읽기 전용 라이브 스모크, 실패 시 롤백.' : overall === 'WARN' ? '- 미완료 단계 또는 합의 필요한 WARN이 남아 있음. 사유를 기록하고 준선님 판단을 받은 뒤에만 승인 요청.' : '- **배포 후보 아님.** FAIL 해소 후 재검수.', '');
+md.push('## 알려진 한계', '`references/limits.md` 참조. 단계 1 가설 시험 미확인 항목은 확정 전까지 구현 가정으로 쓰지 않음.', '', '## 인계', overall === 'PASS' ? '- 배포 후보. **라이브 반영은 운영 책임자 승인 후 1회만.** 반영 후 읽기 전용 라이브 스모크, 실패 시 롤백.' : overall === 'WARN' ? '- 미완료 단계 또는 합의 필요한 WARN이 남아 있음. 사유를 기록하고 운영 책임자 판단을 받은 뒤에만 승인 요청.' : '- **배포 후보 아님.** FAIL 해소 후 재검수.', '');
 const text = md.join('\n');
 const out = opt.out && opt.out !== true ? opt.out : null;
 if (out) fs.writeFileSync(out, text);

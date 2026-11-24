@@ -17,7 +17,7 @@ skills/mac-storage-maintenance/
 # 2026-11-04 Claude판 효율스킬(내부 운영 라우팅) - 퍼블릭 레포 제외
 skills/mazi-efficiency/
 
-# 2026-11-07 내부 경로·맥미니 운영 상세 포함 / 앱 동기화 폴더 - 퍼블릭 레포 제외
+# 2026-11-07 내부 경로·운영 상세 포함 / 앱 동기화 폴더 - 퍼블릭 레포 제외
 skills/kakaotalk-mac/
 skills/synced/
 .DS_Store
@@ -26,7 +26,7 @@ skills/synced/
 skills/editorial-tone/refsets/
 skills/editorial-tone/scripts/seg
 
-# 2026-11-24 QC 공통 코어 v3(맥미니 경로·케이스 번호 등 운영 상세 포함, 정본=hmini) - 퍼블릭 레포 제외
+# 2026-11-24 QC 공통 코어 v3(운영 상세 포함, 정본은 비공개) - 퍼블릭 레포 제외
 skills/qc.md
 
 # 앱이 지운 스킬 임시 보관함(공개 저장소 제외, 11/24)

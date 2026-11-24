@@ -2,7 +2,7 @@
 방식: 사진별 자동 맞춤을 거친 '평범한 원본' 묶음에 레시피를 적용했을 때의 통계가
 레퍼런스 통계와 같아지도록 파라미터를 탐색(무작위 + 좌표 탐색, numpy만 사용).
 """
-import sys, glob, json, numpy as np
+import os, sys, glob, json, numpy as np
 from PIL import Image
 from tone import rgb2lab
 import film2
@@ -95,8 +95,8 @@ def fit(srcs, ref, start, iters=900, seed=0):
 
 if __name__ == '__main__':
     out = sys.argv[1]; refs = sys.argv[2:]
-    src_files = sorted(glob.glob('/Users/junsuneom/Downloads/에디토리얼톤_테스트/새이미지/2차_원본/*')) + \
-                sorted(glob.glob('/Users/junsuneom/Downloads/에디토리얼톤_테스트/새이미지/원본/*'))
+    src_files = sorted(glob.glob(os.path.expanduser('~/Downloads/에디토리얼톤_테스트/새이미지/2차_원본/*'))) + \
+                sorted(glob.glob(os.path.expanduser('~/Downloads/에디토리얼톤_테스트/새이미지/원본/*')))
     srcs = [film2.normalize(load_small(f, 160, trim=False)) for f in src_files]
     ref = stats([load_small(f) for f in refs])
     start = dict(black=2.0, white=95.0, gamma=1.0, contrast=1.0, sat=1.0, green_sat=1.0, green_shift=0,
