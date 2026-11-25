@@ -1,3 +1,5 @@
+> ⚠️ 2026-11-25: 이 문서의 `open -a`·osascript·Chrome AppleScript 방식은 과거 사례다. 지금은 Aside(`mcp__aside__repl` / `aside repl`)만 쓴다(CLAUDE.md `ASIDE_ONLY_LINK_OPEN`). 판단 기준·안전 경계 사례로만 읽는다.
+
 # Local Chrome credential-page handoff
 
 Use this when the user says a service is already logged in on the local Mac and asks the agent to open credential/API setup pages on their screen.

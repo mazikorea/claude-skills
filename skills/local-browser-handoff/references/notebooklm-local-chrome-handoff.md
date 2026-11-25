@@ -1,3 +1,5 @@
+> ⚠️ 2026-11-25: 이 문서의 `open -a`·osascript·Chrome AppleScript 방식은 과거 사례다. 지금은 Aside(`mcp__aside__repl` / `aside repl`)만 쓴다(CLAUDE.md `ASIDE_ONLY_LINK_OPEN`). 판단 기준·안전 경계 사례로만 읽는다.
+
 # NotebookLM local Chrome handoff pattern
 
 ## Situation
